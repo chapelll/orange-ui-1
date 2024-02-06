@@ -1,9 +1,4 @@
 <template>
-  <div>导航栏 |
-    <router-link to="/">首页1</router-link>|
-    <router-link to="/zcz2">zcz2</router-link>
-  </div>
-  <hr/>
   <router-view></router-view>
 </template>
 
