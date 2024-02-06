@@ -3,6 +3,13 @@
 </template>
 
 <script setup lang="ts">
+import { ref, provide } from 'vue';
+
+const clientWidth = document.documentElement.clientWidth
+const asideVisible = ref(clientWidth <= 500 ? false : true)
+provide('asideVisible', asideVisible)
+
+
 </script>
 
 <style scoped>
