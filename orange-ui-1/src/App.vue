@@ -4,11 +4,17 @@
 
 <script setup lang="ts">
 import { ref, provide } from 'vue';
+import { router } from './router'
 
 const clientWidth = document.documentElement.clientWidth
 const asideVisible = ref(clientWidth <= 500 ? false : true)
 provide('asideVisible', asideVisible)
 
+router.afterEach(() => {
+  if (clientWidth <= 500) {
+    asideVisible.value = false
+  }
+})
 
 </script>
 

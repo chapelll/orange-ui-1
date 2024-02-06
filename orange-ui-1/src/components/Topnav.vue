@@ -1,6 +1,6 @@
 <template>
     <div class="topnav">
-        <div class="logo" >LOGO</div>
+        <div class="logo">LOGO</div>
         <ul class="menu">
             <li>菜单1</li>
             <li>菜单2</li>
@@ -24,7 +24,10 @@ const toggleAside = () => {
     background: pink;
     display: flex;
     padding: 16px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 10;
     justify-content: center;
     align-items: center;
@@ -47,7 +50,7 @@ const toggleAside = () => {
     >.toggle-aside {
         width: 24px;
         height: 24px;
-        background-color: red;
+        background: red;
         position: absolute;
         left: 16px;
         top: 50%;
@@ -68,5 +71,6 @@ const toggleAside = () => {
             display: inline-block;
         }
     }
-}</style>
+}
+</style>
   
