@@ -1,17 +1,17 @@
 <template>
     <div>
-        <Switch></Switch>
+        <Switch :value="y" @input="toggle"></Switch>
     </div>
 </template>
   
-<script lang="ts">
+<script lang="ts" setup>
+import { ref } from 'vue';
 import Switch from '../lib/Switch.vue'
-export default {
-    components: {
-        Switch
-    }
-}
 
+const y = ref(false)
+const toggle = (e) => {
+    y.value = e
+}
 </script>
 
   
