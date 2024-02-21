@@ -1,0 +1,2 @@
+switch开关中的白色圆圈，滚动是使用的margin变化+transition
+left: calc(100% - #{$h2} - 2px); (白色圆圈位置)
