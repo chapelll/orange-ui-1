@@ -7,3 +7,8 @@
     font-size: 16px;
 }
 "orange-"开头 和 包含" orange-" 的类名
+
+attrs指父组件传给了子组件且子组件没在props中接收的属性
+setup语法糖需要引入useAttrs来获得attrs
+import { useAttrs } from 'vue'
+const attrs = useAttrs()
