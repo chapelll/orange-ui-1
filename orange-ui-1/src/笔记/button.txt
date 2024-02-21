@@ -1,3 +1,2 @@
-switch开关中的白色圆圈，滚动是使用的margin变化+transition
-left: calc(100% - #{$h2} - 2px); (白色圆圈位置)
-vue3 v-model用法 v-model:value="y" 等价于 :value="y" @update:value="y=$event"
+在父组件中使用子组件时绑定的方法会直接绑在子组件的最外层(使用inheritAttrs: false
+来拒绝绑定 无法在 <script setup> 声明的选项)
