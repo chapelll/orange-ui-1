@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Switch :value="y" @input="toggle"></Switch>
+        <Switch :value="bool" @toggle="toggle"></Switch>
     </div>
 </template>
   
@@ -8,9 +8,9 @@
 import { ref } from 'vue';
 import Switch from '../lib/Switch.vue'
 
-const y = ref(false)
+const bool = ref(false)
 const toggle = (e) => {
-    y.value = e
+    bool.value = e
 }
 </script>
 
