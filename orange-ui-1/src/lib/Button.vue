@@ -1,6 +1,5 @@
 <template>
-    <button class="orange-button" 
-    :class="`orange-theme-${props.theme}`">
+    <button class="orange-button" :class="`orange-theme-${props.theme}`">
         <slot></slot>
     </button>
 </template>
@@ -56,6 +55,29 @@ $radius: 4px;
     &::-moz-focus-inner {
         border: 0;
     }
-}
-</style>
+
+    &.orange-theme-link {
+        border-color: transparent;
+        box-shadow: none;
+        color: $blue;
+
+        &:hover,
+        &:focus {
+            color: lighten($blue, 10%);
+        }
+    }
+
+    &.orange-theme-text {
+        border-color: transparent;
+        box-shadow: none;
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            background: darken(white, 5%);
+            ;
+        }
+
+    }
+}</style>
   

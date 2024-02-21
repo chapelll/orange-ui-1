@@ -66,7 +66,7 @@ const asideVisible = inject('asideVisible')
   >main {
     flex-grow: 1;
     padding: 16px;
-    background: lightgreen;
+    background: #fff;
   }
 }
 
