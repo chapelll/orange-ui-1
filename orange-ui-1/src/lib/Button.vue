@@ -1,21 +1,11 @@
 <template>
-    <div class="wrapper">
-        <button v-bind="$attrs">
-            <slot></slot>
-        </button>
-    </div>
+    <button v-bind="$attrs">
+        <slot></slot>
+    </button>
 </template>
   
-<script lang="ts">
-export default {
-    inheritAttrs: false,
-    setup(props, context) {
-        console.log(props);
-        console.log(context.attrs);
-        const { size, ...rest } = context.attrs
-        return { size, rest }
-    }
-}
+<script lang="ts" setup>
+
 
 </script>
   
