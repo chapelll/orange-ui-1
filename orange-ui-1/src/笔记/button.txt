@@ -1,2 +1,9 @@
 在父组件中使用子组件时绑定的方法会直接绑在子组件的最外层(使用inheritAttrs: false
 来拒绝绑定 无法在 <script setup> 声明的选项)
+[class^="orange-"], [class*=" orange-"] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+"orange-"开头 和 包含" orange-" 的类名

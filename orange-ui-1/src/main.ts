@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import './lib/orange.scss'
 import './index.scss'
 import App from './App.vue'
 

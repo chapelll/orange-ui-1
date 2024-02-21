@@ -1,5 +1,5 @@
 <template>
-    <button @click="toggle" :class="{ 'checked': props.value }"> <span></span> </button>
+    <button @click="toggle" class="orange-switch" :class="{ 'orange-checked': props.value }"> <span></span> </button>
 </template>
   
 <script setup lang="ts">
@@ -13,11 +13,11 @@ const toggle = () => {
 
 </script>
   
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
 
-button {
+.orange-switch {
     height: $h;
     width: $h*2;
     border: none;
@@ -26,7 +26,7 @@ button {
     position: relative;
 }
 
-button.checked {
+.orange-switch.orange-checked {
     background: #1890ff;
 }
 
@@ -41,24 +41,24 @@ span {
     transition: all 250ms;
 }
 
-button.checked>span {
+.orange-switch.orange-checked>span {
     left: calc(100% - #{$h2} - 2px);
 }
 
-button:active {
+.orange-switch:active {
     >span {
         width: $h2 + 4px;
     }
 }
 
-button.checked:active {
+.orange-switch.orange-checked:active {
     >span {
         width: $h2 + 4px;
         margin-left: -4px;
     }
 }
 
-button:focus {
+.orange-switch:focus {
     outline: none;
 }
 </style>

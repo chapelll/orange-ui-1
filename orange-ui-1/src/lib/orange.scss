@@ -1,0 +1,15 @@
+[class^="orange-"], [class*=" orange-"] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        border-bottom: 1px solid;
+    }
+}
