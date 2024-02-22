@@ -5,7 +5,10 @@
             <h1>示例1</h1>
             <div>
                 <Button @click="toggle">切换</Button>
-                <Modal v-model:visible="visible" :closeOnClickOverlay="true" :confirm="confirm" :cancel="cancel"></Modal>
+                <Modal title="我的标题" v-model:visible="visible" :closeOnClickOverlay="true" :confirm="confirm" :cancel="cancel">
+                    <template v-slot:title>我的标题</template>
+                    <template v-slot:content>自定义内容</template>
+                </Modal>
             </div>
         </div>
     </div>

@@ -3,10 +3,12 @@
         <div class="orange-modal-overlay" @click="handleOverlay"></div>
         <div class="orange-modal-wrapper">
             <div class="orange-modal">
-                <header>标题 <span class="orange-modal-close" @click="close"></span></header>
+                <header>
+                    <slot name="title"></slot>
+                    <span class="orange-modal-close" @click="close"></span>
+                </header>
                 <main>
-                    <p>第一行字</p>
-                    <p>第二行字</p>
+                    <slot name="content"></slot>
                 </main>
                 <footer>
                     <Button level="main" @click="handleConfrim">确定</Button>
