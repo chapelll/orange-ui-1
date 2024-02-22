@@ -1,16 +1,16 @@
 <template>
     <template v-if="props.visible">
-        <div class="orange-modal-overlay"></div>
+        <div class="orange-modal-overlay" @click="handleOverlay"></div>
         <div class="orange-modal-wrapper">
             <div class="orange-modal">
-                <header>标题 <span class="orange-modal-close"></span></header>
+                <header>标题 <span class="orange-modal-close" @click="close"></span></header>
                 <main>
                     <p>第一行字</p>
                     <p>第二行字</p>
                 </main>
                 <footer>
-                    <Button level="main">OK</Button>
-                    <Button>Cancel</Button>
+                    <Button level="main" @click="handleConfrim">确定</Button>
+                    <Button @click="handleCancel">取消</Button>
                 </footer>
             </div>
         </div>
@@ -24,8 +24,40 @@ const props = defineProps({
     visible: {
         type: Boolean,
         default: false
-    }
+    },
+    closeOnClickOverlay: {
+        type: Boolean,
+        default: false
+    },
+    confirm: {
+        type: Function,
+    },
+    cancel: {
+        type: Function,
+    },
 })
+
+const emits = defineEmits(['update:visible'])
+const close = () => {
+    emits('update:visible', false)
+}
+const handleOverlay = () => {
+    if (props.closeOnClickOverlay) {
+        close()
+    }
+}
+const handleConfrim = () => {
+    if (props.confirm && props.confirm() !== false) {
+        //判断传入的confirm是否有阻塞执行
+        close()
+    }
+}
+const handleCancel = () => {
+    if (props.confirm && props.cancel() !== false) {
+        //判断传入的cancel是否有阻塞执行
+        close()
+    }
+}
 
 </script>
     

@@ -1,0 +1,12 @@
+modal框点击确定时，执行某个逻辑在判断它是否可以关闭
+传入函数时，该函数return一个布尔值，在modal组件内部判断布尔值来决定是否关闭close
+modalDemo: 
+:confirm="confirm"
+const confirm = () => {
+    return false
+}
+
+modal组件
+if (props.confirm && props.confirm() !== false) {
+    close()
+}
