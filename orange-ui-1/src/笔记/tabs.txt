@@ -1,0 +1,4 @@
+使用useSlots().defaults.type来获取父组件中的子组件类型
+注意: vue中的每个组件实质上就是这个type
+因此我们可以使用 useSlots().defaults.type === Tab (Tab是引入的组件本身)
+来判断父组件包裹的组件是否是我们想要的那个组件
