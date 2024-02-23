@@ -1,21 +1,23 @@
 <template>
     <template v-if="props.visible">
-        <div class="orange-modal-overlay" @click="handleOverlay"></div>
-        <div class="orange-modal-wrapper">
-            <div class="orange-modal">
-                <header>
-                    <slot name="title"></slot>
-                    <span class="orange-modal-close" @click="close"></span>
-                </header>
-                <main>
-                    <slot name="content"></slot>
-                </main>
-                <footer>
-                    <Button level="main" @click="handleConfrim">确定</Button>
-                    <Button @click="handleCancel">取消</Button>
-                </footer>
+        <teleport to="body">
+            <div class="orange-modal-overlay" @click="handleOverlay"></div>
+            <div class="orange-modal-wrapper">
+                <div class="orange-modal">
+                    <header>
+                        <slot name="title"></slot>
+                        <span class="orange-modal-close" @click="close"></span>
+                    </header>
+                    <main>
+                        <slot name="content"></slot>
+                    </main>
+                    <footer>
+                        <Button level="main" @click="handleConfrim">确定</Button>
+                        <Button @click="handleCancel">取消</Button>
+                    </footer>
+                </div>
             </div>
-        </div>
+        </teleport>
     </template>
 </template>
     
