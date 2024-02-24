@@ -1,11 +1,12 @@
 <template>
     <div class="orange-tabs">
         <div class="orange-tabs-nav">
-            <div class="orange-tabs-nav-item" :class="{ 'selected': t === props.selected }"
+            <div class="orange-tabs-nav-item" @click="toggleItem(t)" :class="{ 'selected': t === props.selected }"
                 v-for="(t, index) in titles" :key="index">{{ t }}</div>
         </div>
         <div class="orange-tabs-content">
-            <component class="orange-tabs-content-item" v-for="(c, index) in defaults" :is="c" :key="index" />
+            <component :class="{ 'selected': selected === c.props.title }" class="orange-tabs-content-item"
+                v-for="(c, index) in defaults" :is="c" :key="index" />
         </div>
     </div>
 </template>
@@ -19,6 +20,7 @@ const props = defineProps({
         type: String,
     }
 })
+const emits = defineEmits(['update:selected'])
 
 const defaults = useSlots().default()
 defaults.forEach((item, index) => {
@@ -29,6 +31,9 @@ defaults.forEach((item, index) => {
 const titles = defaults.map((item) => {
     return item.props.title
 })
+const toggleItem = (t) => {
+    emits('update:selected', t)
+}
 
 
 
@@ -62,6 +67,14 @@ $border-color: #d9d9d9;
 
     &-content {
         padding: 8px 0;
+
+        &-item {
+            display: none;
+
+            &.selected {
+                display: block;
+            }
+        }
     }
 }
 </style>

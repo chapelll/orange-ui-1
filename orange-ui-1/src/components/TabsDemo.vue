@@ -3,7 +3,7 @@
     <div>
         <h1>示例1</h1>
         <div>
-            <Tabs selected="导航一">
+            <Tabs v-model:selected="selectedTab">
                 <Tab title="导航一">选项一</Tab>
                 <Tab title="导航二">选项二</Tab>
             </Tabs>
@@ -14,6 +14,10 @@
 <script setup lang="ts">
 import Tabs from '../lib/Tabs.vue'
 import Tab from '../lib/Tab.vue'
+import { ref } from 'vue';
+
+// 默认选择导航
+const selectedTab = ref('导航一')
 </script>
   
 <style lang="scss" scoped></style>
