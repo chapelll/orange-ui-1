@@ -1,18 +1,19 @@
 <template>
     <div class="orange-tabs">
         <div class="orange-tabs-nav">
-            <div class="orange-tabs-nav-item" @click="toggleItem(t)" :class="{ 'selected': t === props.selected }"
-                v-for="(t, index) in titles" :key="index">{{ t }}</div>
+            <div class="orange-tabs-nav-item" :ref="el => { if (el) navItems[index] = el }" @click="toggleItem(t)"
+                :class="{ 'selected': t === props.selected }" v-for="(t, index) in  titles " :key="index">{{ t }}</div>
+            <div ref="indicator" class="orange-tabs-nav-indicator"></div>
         </div>
         <div class="orange-tabs-content">
             <component :class="{ 'selected': selected === c.props.title }" class="orange-tabs-content-item"
-                v-for="(c, index) in defaults" :is="c" :key="index" />
+                v-for="( c, index ) in  defaults " :is="c" :key="index" />
         </div>
     </div>
 </template>
   
 <script setup lang="ts">
-import { useSlots } from 'vue'
+import { nextTick, onMounted, ref, useSlots, watch } from 'vue'
 import Tab from '../lib/Tab.vue'
 
 const props = defineProps({
@@ -34,7 +35,27 @@ const titles = defaults.map((item) => {
 const toggleItem = (t) => {
     emits('update:selected', t)
 }
-
+const navItems = ref([])
+const indicator = ref(null)
+onMounted(() => {
+    toggle()
+})
+watch(() => props.selected, (newValue) => {
+    if (newValue) {
+        toggle()
+    }
+})
+const toggle = () => {
+    nextTick(() => {
+        const divs = navItems.value
+        const selectedItem = divs.filter((item) => {
+            return item.classList.contains('selected')
+        })[0]
+        const width = selectedItem.getBoundingClientRect().width
+        indicator.value.style.width = width + 'px'
+        console.log(width);
+    })
+}
 
 
 </script>
@@ -49,6 +70,7 @@ $border-color: #d9d9d9;
         display: flex;
         color: $color;
         border-bottom: 1px solid $border-color;
+        position: relative;
 
         &-item {
             padding: 8px 0;
@@ -62,6 +84,15 @@ $border-color: #d9d9d9;
             &.selected {
                 color: $blue;
             }
+        }
+
+        &-indicator {
+            position: absolute;
+            height: 3px;
+            background-color: $blue;
+            left: 0;
+            bottom: -1px;
+            width: 100px;
         }
     }
 

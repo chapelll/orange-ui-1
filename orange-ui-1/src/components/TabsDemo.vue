@@ -5,7 +5,7 @@
         <div>
             <Tabs v-model:selected="selectedTab">
                 <Tab title="导航一">选项一</Tab>
-                <Tab title="导航二">选项二</Tab>
+                <Tab title="导航二二二二">选项二</Tab>
             </Tabs>
         </div>
     </div>
