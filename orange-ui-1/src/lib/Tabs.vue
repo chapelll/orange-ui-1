@@ -1,19 +1,19 @@
 <template>
     <div class="orange-tabs">
-        <div class="orange-tabs-nav">
-            <div class="orange-tabs-nav-item" :ref="el => { if (el) navItems[index] = el }" @click="toggleItem(t)"
-                :class="{ 'selected': t === props.selected }" v-for="(t, index) in  titles " :key="index">{{ t }}</div>
+        <div class="orange-tabs-nav" ref="container">
+            <div class="orange-tabs-nav-item" :ref="el => { if (t === props.selected) selectedItem = el }"
+                @click="toggleItem(t)" :class="{ 'selected': t === props.selected }" v-for="(t, index) in  titles "
+                :key="index">{{ t }}</div>
             <div ref="indicator" class="orange-tabs-nav-indicator"></div>
         </div>
         <div class="orange-tabs-content">
-            <component :class="{ 'selected': selected === c.props.title }" class="orange-tabs-content-item"
-                v-for="( c, index ) in  defaults " :is="c" :key="index" />
+            <component :is="current" :key="current.props.title"/>
         </div>
     </div>
 </template>
   
 <script setup lang="ts">
-import { nextTick, onMounted, ref, useSlots, watch } from 'vue'
+import { ref, useSlots, watchEffect, onMounted, computed } from 'vue'
 import Tab from '../lib/Tab.vue'
 
 const props = defineProps({
@@ -32,31 +32,32 @@ defaults.forEach((item, index) => {
 const titles = defaults.map((item) => {
     return item.props.title
 })
+const current = computed(() => {
+    return defaults.find((item) => {
+        return item.props.title === props.selected
+    })
+})
+
 const toggleItem = (t) => {
     emits('update:selected', t)
 }
-const navItems = ref([])
+const selectedItem = ref(null)
 const indicator = ref(null)
-onMounted(() => {
-    toggle()
-})
-watch(() => props.selected, (newValue) => {
-    if (newValue) {
-        toggle()
-    }
-})
+const container = ref(null)
+
 const toggle = () => {
-    nextTick(() => {
-        const divs = navItems.value
-        const selectedItem = divs.filter((item) => {
-            return item.classList.contains('selected')
-        })[0]
-        const width = selectedItem.getBoundingClientRect().width
-        indicator.value.style.width = width + 'px'
-        console.log(width);
-    })
+    const width = selectedItem.value.getBoundingClientRect().width
+    indicator.value.style.width = width + 'px'
+    const left1 = container.value.getBoundingClientRect().left
+    const left2 = selectedItem.value.getBoundingClientRect().left
+    indicator.value.style.left = left2 - left1 + 'px'
 }
 
+onMounted(() => {
+    watchEffect(() => {
+        toggle()
+    })
+})
 
 </script>
   
@@ -93,6 +94,7 @@ $border-color: #d9d9d9;
             left: 0;
             bottom: -1px;
             width: 100px;
+            transition: all 350ms;
         }
     }
 
