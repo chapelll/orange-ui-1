@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>默认页面</p>
+        <p>Doc 默认页面</p>
     </div>
 </template>
   

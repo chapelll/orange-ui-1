@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Topnav class="nav" />
+    <Topnav class="nav" :toggleAsideShow="true" />
     <div class="content">
       <aside v-if="asideVisible">
         <h2>组件列表</h2>
@@ -32,7 +32,6 @@ import { inject } from 'vue';
 import Topnav from "../components/Topnav.vue";
 
 const asideVisible = inject('asideVisible')
-
 </script>
 
 <style lang="scss" scoped>
