@@ -1,6 +1,10 @@
 <template>
     <div class="topnav">
-        <div class="logo">LOGO</div>
+        <div class="logo">
+            <svg class="icon">
+                <use xlink:href="#i-020-orange"></use>
+            </svg>
+        </div>
         <ul class="menu">
             <li>菜单1</li>
             <li>菜单2</li>
@@ -20,6 +24,8 @@ const toggleAside = () => {
 </script>
   
 <style lang="scss" scoped>
+$text-color: #007974;
+
 .topnav {
     display: flex;
     padding: 16px;
@@ -30,10 +36,17 @@ const toggleAside = () => {
     z-index: 10;
     justify-content: center;
     align-items: center;
+    color: $text-color;
 
     >.logo {
         max-width: 6em;
         margin-right: auto;
+
+        >svg {
+            width: 32px;
+            height: 32px;
+        }
+
     }
 
     >.menu {
