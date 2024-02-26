@@ -6,8 +6,8 @@
         <h1>橘子UI</h1>
         <h2>一个用于学习的 UI 框架</h2>
         <p class="actions">
-          <a href="123">GitHub</a>
-          <router-link to="doc">开始</router-link>
+        <div class="link" href="123">GitHub</div>
+        <div class="link" @click="toPage('/doc')">开始</div>
         </p>
       </div>
     </div>
@@ -38,11 +38,13 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import Topnav from "../components/Topnav.vue";
-export default {
-  components: { Topnav },
-};
+import { useRouter } from "vue-router";
+const router = useRouter()
+const toPage = (url) => {
+  router.push(url)
+}
 </script>
 <style lang="scss" scoped>
 $green: #02bcb0;
@@ -65,7 +67,8 @@ $text-color: #007974;
   >.actions {
     padding: 8px 0;
 
-    a {
+    .link {
+      cursor: pointer;
       margin: 0 8px;
       background: $green;
       color: #fff;
