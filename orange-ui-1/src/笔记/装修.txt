@@ -1,0 +1,6 @@
+1 #e3fffd
+2 #b7e9e6
+3 #ccf4f1
+button #02bcb0
+text #28d1c9
+black text #1d2c40
