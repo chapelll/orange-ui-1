@@ -1,0 +1,9 @@
+&lt;template&gt;
+    &lt;Switch v-model:value="bool" /&gt;
+&lt;/template&gt;
+  
+&lt;script lang="ts" setup&gt;
+import { ref } from 'vue';
+import Switch from '../lib/Switch.vue'
+const bool = ref(false)
+&lt;/script&gt;

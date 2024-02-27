@@ -5,10 +5,10 @@
 <script setup lang="ts">
 // import { ref } from 'vue'
 const props = defineProps(['value'])
-const emits = defineEmits(['toggle'])
+const emits = defineEmits(['update:value'])
 
 const toggle = () => {
-    emits('toggle', !props.value)
+    emits('update:value', !props.value)
 }
 
 </script>
@@ -18,6 +18,7 @@ $h: 22px;
 $h2: $h - 4px;
 
 .orange-switch {
+    cursor: pointer;
     height: $h;
     width: $h*2;
     border: none;
