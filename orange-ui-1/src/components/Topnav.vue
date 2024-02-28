@@ -37,7 +37,7 @@ $text-color: #007974;
 .topnav {
     display: flex;
     padding: 16px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -47,8 +47,7 @@ $text-color: #007974;
     color: $text-color;
 
     >.logo {
-        max-width: 6em;
-        margin-right: auto;
+        margin: 0 auto;
 
         >svg {
             width: 32px;
@@ -61,6 +60,10 @@ $text-color: #007974;
         display: flex;
         white-space: nowrap;
         flex-wrap: nowrap;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 24px;
 
         >li {
             margin: 0 1em;

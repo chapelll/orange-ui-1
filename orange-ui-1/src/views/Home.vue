@@ -25,7 +25,7 @@
             <use xlink:href="#i-typeScript"></use>
           </svg>
           <h3>基于 TypeScript </h3>
-          <p>源代码采用 TypeScript 书写（非严格检查）</p>
+          <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
           <svg>
@@ -85,7 +85,6 @@ $text-color: #007974;
 
 .features {
   margin: 64px auto;
-  width: 400px;
 
   @media (min-width: 800px) {
     width: 800px;
@@ -102,6 +101,7 @@ $text-color: #007974;
     >li {
       width: 400px;
       margin: 16px 0;
+      padding: 0 16px;
       display: grid;
       justify-content: start;
       align-content: space-between;
