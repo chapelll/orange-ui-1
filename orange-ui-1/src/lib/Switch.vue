@@ -1,5 +1,6 @@
 <template>
-    <button @click="toggle" class="orange-switch" :class="{ 'orange-checked': props.value }"> <span></span> </button>
+    <button @click="toggle" class="orange-switch" :class="{ 'orange-checked': props.value }"> <span class="circle"></span>
+    </button>
 </template>
   
 <script setup lang="ts">
@@ -31,7 +32,7 @@ $h2: $h - 4px;
     background: #1890ff;
 }
 
-span {
+.circle {
     position: absolute;
     top: 2px;
     left: 2px;

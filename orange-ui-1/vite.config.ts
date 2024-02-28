@@ -1,25 +1,14 @@
-// @ts-nocheck
-
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import fs from 'fs'
-import { baseParse } from '@vue/compiler-core'
-import { log } from 'console';
-
-export default {
-  plugins: [vue()],
-  vueCustomBlockTransforms: {
-    demo: (options) => {
-      const { code, path } = options
-      const file = fs.readFileSync(path).toString()
-      const parsed = baseParse(file).children.find(n => n.tag === 'demo')
-      console.log(parsed);
-      const title = parsed.children[0].content
-      const main = file.split(parsed.loc.source).join('').trim()
-      return `export default function (Component) {
-        Component.__sourceCode = ${JSON.stringify(main)
-        }
-        Component.__sourceCodeTitle = ${JSON.stringify(title)}
-      }`.trim()
-    }
-  }
-};
+import { prismjsPlugin } from 'vite-plugin-prismjs'
+export default defineConfig({
+  plugins: [
+    vue(),
+    prismjsPlugin({
+      languages: 'all', // 语言
+      plugins: ['line-numbers', 'show-language', 'copy-to-clipboard', 'inline-color'],
+      theme: 'okaidia',// 主题
+      css: true,
+    })
+  ]
+})

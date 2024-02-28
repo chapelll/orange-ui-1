@@ -10,7 +10,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+                <pre><code class="language-html">{{ switchdemo1 }}</code></pre>
             </div>
         </div>
         <div class="demo">
@@ -22,23 +22,29 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre class="language-html" v-html="Prism.highlight(string1, Prism.languages.html, 'html')"></pre>
+                <pre><code class="language-html">{{ switchdemo2 }}</code></pre>
             </div>
         </div>
     </div>
 </template>
   
 <script lang="ts" setup>
+import Prism from "prismjs";
+import { onMounted, onUpdated } from "vue";
 import Button from '../lib/Button.vue'
 // import Switch from '../lib/Switch.vue'
 import Switch1demo from './Switch1Demo.vue'
 import Switch2demo from './Switch2Demo.vue'
-import "prismjs"
 import "prismjs/themes/prism.css"
-const Prism = (window as any).Prism
-console.log(Prism);
 
-const string1 = `<&lt;Switch v-model:value="bool" disabled /&gt;>`
+import { switchdemo1,switchdemo2 } from '../explain/switch'
+
+onUpdated(() => {
+    Prism.highlightAll(); //修改内容后重新渲染
+});
+onMounted(() => {
+    Prism.highlightAll(); //切换菜单重新渲染
+})
 </script>
 
   
