@@ -10,7 +10,6 @@ import DocDemo from './components/DocDemo.vue'
 import Intro from './views/Intro.vue'
 import Install from './views/Install.vue'
 import GetStarted from './views/GetStarted.vue'
-import demo from './components/demo.vue'
 
 
 const history = createWebHashHistory()
@@ -54,9 +53,6 @@ export const router = createRouter({
             path: 'tabs',
             component: TabsDemo,
         },]
-    }, {
-        path: '/demo',
-        component: demo,
-    }
+    },
     ]
 })
