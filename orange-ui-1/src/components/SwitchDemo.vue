@@ -12,8 +12,8 @@
   
 <script lang="ts" setup>
 import demo from './demo.vue'
-import Switch1demo from './Switch1Demo.vue'
-import Switch2demo from './Switch2Demo.vue'
+import Switch1demo from '../example/Switch1Demo.vue'
+import Switch2demo from '../example/Switch2Demo.vue'
 import { switchdemo1,switchdemo2 } from '../explain/switch'
 
 </script>
