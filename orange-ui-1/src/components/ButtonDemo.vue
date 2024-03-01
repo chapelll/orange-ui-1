@@ -1,71 +1,46 @@
 <template>
-    <div>Button示例</div>
+    <h1>Button 组件示例 </h1>
     <div>
-        <h1>示例1</h1>
-        <div>
-            <Button>你好</Button>
-            <Button theme="link">你好</Button>
-            <Button theme="text">你好</Button>
-        </div>
+        <demo title="常规使用" :codes="buttondemo1">
+            <Button1demo></Button1demo>
+        </demo>
     </div>
+
     <div>
-        <h1>示例2</h1>
-        <div>
-            <Button size="big">大大大</Button>
-            <Button>普通按钮</Button>
-            <Button size="small">小小小</Button>
-        </div>
-        <div>
-            <Button theme="link" size="big">大大大</Button>
-            <Button theme="link">普通按钮</Button>
-            <Button size="small" theme="link">小小小</Button>
-        </div>
-        <div>
-            <Button size="big" theme="text">大大大</Button>
-            <Button theme="text">普通按钮</Button>
-            <Button size="small" theme="text">小小小</Button>
-        </div>
+        <demo title="支持size" :codes="buttondemo2">
+            <Button2demo></Button2demo>
+        </demo>
     </div>
+
     <div>
-        <h1>示例3</h1>
-        <div>
-            <Button level="main">主要按钮</Button>
-            <Button>普通按钮</Button>
-            <Button level="warning">警告按钮</Button>
-            <Button level="danger">危险按钮</Button>
-        </div>
-        <div>
-            <Button theme="link" level="main">主要链接按钮</Button>
-            <Button theme="link">普通链接按钮</Button>
-            <Button theme="link" level="warning">警告链接按钮</Button>
-            <Button theme="link" level="danger">危险链接按钮</Button>
-        </div>
-        <div>
-            <Button theme="text" level="main">主要文字按钮</Button>
-            <Button theme="text">普通文字按钮</Button>
-            <Button theme="text" level="warning">警告文字按钮</Button>
-            <Button theme="text" level="danger">危险文字按钮</Button>
-        </div>
+        <demo title="支持level" :codes="buttondemo3">
+            <Button3demo></Button3demo>
+        </demo>
     </div>
+
     <div>
-        <h1>示例4</h1>
-        <div>
-            <Button :disabled="true">禁用按钮</Button>
-            <Button :disabled="true" theme="link">禁用链接按钮</Button>
-            <Button :disabled="true" theme="text">禁用文字按钮</Button>
-        </div>
+        <demo title="支持disabled" :codes="buttondemo4">
+            <Button4demo></Button4demo>
+        </demo>
     </div>
+
     <div>
-        <h1>示例5</h1>
-        <div>
-            <Button loading>加载中</Button>
-            <Button>加载完毕</Button>
-        </div>
+        <demo title="支持loading" :codes="buttondemo5">
+            <Button5demo></Button5demo>
+        </demo>
     </div>
 </template>
   
 <script setup lang="ts">
-import Button from '../lib/Button.vue'
+import demo from './demo.vue'
+import Button1demo from '../example/Button1demo.vue'
+import Button2demo from '../example/Button2demo.vue'
+import Button3demo from '../example/Button3demo.vue'
+import Button4demo from '../example/Button4demo.vue'
+import Button5demo from '../example/Button5demo.vue'
+
+import { buttondemo1, buttondemo2, buttondemo3, buttondemo4, buttondemo5 } from '../explain/button'
+
 </script>
   
 <style lang="scss" scoped></style>
