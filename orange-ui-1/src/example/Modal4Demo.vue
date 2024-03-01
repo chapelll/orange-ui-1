@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Button @click="showModal"> 一键打开Modal </Button>
+        <Button @click="showModal"> 打开Modal </Button>
     </div>
 </template>
   

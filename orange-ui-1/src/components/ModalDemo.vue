@@ -13,16 +13,9 @@
             <Modal3Demo></Modal3Demo>
         </demo>
 
-        <demo title="一键打开Modal" :codes="modaldemo4" describe="支持传入confirm事件和cancel事件,当传入的事件return为true时才会关闭">
+        <demo title="一键打开Modal" :codes="modaldemo4" describe="支持以函数调用的方式打开Modal">
             <Modal4Demo></Modal4Demo>
         </demo>
-
-        <!-- <div>
-            <h1>示例2</h1>
-            <div>
-                <Button @click="showModal">show</Button>
-            </div>
-        </div> -->
     </div>
 </template>
   
@@ -33,9 +26,6 @@ import Modal2Demo from '../example/Modal2Demo.vue'
 import Modal3Demo from '../example/Modal3Demo.vue'
 import Modal4Demo from '../example/Modal4Demo.vue'
 import { modaldemo1, modaldemo2, modaldemo3, modaldemo4 } from '../explain/modal'
-
-
-
 </script>
   
 <style lang="scss" scoped></style>
