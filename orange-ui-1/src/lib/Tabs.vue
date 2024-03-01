@@ -2,12 +2,12 @@
     <div class="orange-tabs">
         <div class="orange-tabs-nav" ref="container">
             <div class="orange-tabs-nav-item" :ref="el => { if (t === props.selected) selectedItem = el }"
-                @click="toggleItem(t)" :class="{ 'selected': t === props.selected }" v-for="(t, index) in  titles "
-                :key="index">{{ t }}</div>
+                @click="toggleItem(t)" :class="{ 'selected': t === props.selected, 'disabled': disableds.includes(t) }"
+                v-for="(t, index) in  titles " :key="index">{{ t }}</div>
             <div ref="indicator" class="orange-tabs-nav-indicator"></div>
         </div>
         <div class="orange-tabs-content">
-            <component :is="current" :key="current.props.title"/>
+            <component :is="current" :key="current.props.title" />
         </div>
     </div>
 </template>
@@ -19,7 +19,11 @@ import Tab from '../lib/Tab.vue'
 const props = defineProps({
     selected: {
         type: String,
-    }
+    },
+    disabled: {
+        type: Boolean,
+        default: false
+    },
 })
 const emits = defineEmits(['update:selected'])
 
@@ -32,6 +36,13 @@ defaults.forEach((item, index) => {
 const titles = defaults.map((item) => {
     return item.props.title
 })
+const disableds = []
+defaults.forEach((item) => {
+    if (item.props.disabled) {
+        disableds.push(item.props.title)
+    }
+})
+
 const current = computed(() => {
     return defaults.find((item) => {
         return item.props.title === props.selected
@@ -39,6 +50,9 @@ const current = computed(() => {
 })
 
 const toggleItem = (t) => {
+    if (disableds.includes(t)) {
+        return
+    }
     emits('update:selected', t)
 }
 const selectedItem = ref(null)
@@ -73,6 +87,12 @@ $border-color: #d9d9d9;
         border-bottom: 1px solid $border-color;
         position: relative;
 
+        >.disabled {
+            color: #ccc;
+            opacity: 0.8;
+            cursor: not-allowed;
+        }
+
         &-item {
             padding: 8px 0;
             margin: 0 16px;
@@ -103,6 +123,8 @@ $border-color: #d9d9d9;
 
         &-item {
             display: none;
+
+
 
             &.selected {
                 display: block;
