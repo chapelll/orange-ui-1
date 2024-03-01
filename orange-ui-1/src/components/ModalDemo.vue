@@ -1,59 +1,40 @@
 <template>
     <div>
-        <div>Modal示例</div>
-        <div>
-            <h1>示例1</h1>
-            <div>
-                <Button @click="toggle">切换</Button>
-                <Modal title="我的标题" v-model:visible="visible" :closeOnClickOverlay="true" :confirm="confirm"
-                    :cancel="cancel">
-                    <template v-slot:title>我的标题</template>
-                    <template v-slot:content>自定义内容</template>
-                </Modal>
-            </div>
-        </div>
+        <h1>Modal 组件示例 </h1>
+        <demo title="基本使用" :codes="modaldemo1" describe="支持自定义标题和内容">
+            <Modal1Demo></Modal1Demo>
+        </demo>
 
-        <div>
+        <demo title="支持closeOnClickOverlay" :codes="modaldemo2" describe="点击遮罩层就可以关闭">
+            <Modal2Demo></Modal2Demo>
+        </demo>
+
+        <demo title="支持传入事件" :codes="modaldemo3" describe="支持传入confirm事件和cancel事件,当传入的事件return为true时才会关闭">
+            <Modal3Demo></Modal3Demo>
+        </demo>
+
+        <demo title="一键打开Modal" :codes="modaldemo4" describe="支持传入confirm事件和cancel事件,当传入的事件return为true时才会关闭">
+            <Modal4Demo></Modal4Demo>
+        </demo>
+
+        <!-- <div>
             <h1>示例2</h1>
             <div>
                 <Button @click="showModal">show</Button>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
   
 <script setup lang="ts">
-import Modal from '../lib/Modal.vue'
-import Button from '../lib/Button.vue'
-import { openModal } from '../lib/openModal'
-import { ref } from 'vue';
+import demo from './demo.vue'
+import Modal1Demo from '../example/Modal1Demo.vue'
+import Modal2Demo from '../example/Modal2Demo.vue'
+import Modal3Demo from '../example/Modal3Demo.vue'
+import Modal4Demo from '../example/Modal4Demo.vue'
+import { modaldemo1, modaldemo2, modaldemo3, modaldemo4 } from '../explain/modal'
 
-const visible = ref(false)
-const toggle = () => {
-    visible.value = !visible.value
-}
-const confirm = () => {
-    console.log('点击确定')
-    return false
-}
-const cancel = () => {
-    console.log('点击取消')
-}
 
-const showModal = () => {
-    openModal({
-        title: '标题',
-        content: '你好',
-        closeOnClickOverlay: true,
-        confirm() {
-            console.log('confirm');
-            return false
-        },
-        cancel() {
-            console.log('cancel');
-        },
-    })
-}
 
 </script>
   

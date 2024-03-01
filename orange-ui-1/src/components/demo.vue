@@ -1,7 +1,10 @@
 <template>
     <div>
         <div class="demo">
-            <h2>{{ props.title }}</h2>
+            <h2>
+                {{ props.title }}
+                <div class="describe" v-if="props.describe">{{ props.describe }}</div>
+            </h2>
             <div class="demo-component">
                 <slot></slot>
             </div>
@@ -26,6 +29,9 @@ const props = defineProps({
         type: String,
     },
     codes: {
+        type: String,
+    },
+    describe: {
         type: String,
     }
 })
@@ -54,7 +60,15 @@ $border-color: #d9d9d9;
         font-size: 20px;
         padding: 8px 16px;
         border-bottom: 1px solid $border-color;
+
+        >.describe {
+            color: #999;
+            font-size: 16px;
+            padding-top: 12px;
+        }
     }
+
+
 
     &-component {
         padding: 16px;
