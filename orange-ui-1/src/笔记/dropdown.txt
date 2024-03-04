@@ -1,0 +1,9 @@
+使用component代替slot以获得子组件内部的属性和事件(循环defaults)
+<div class="dropdown">
+    <component @click="handleItem(index)" v-for="(item, index) of defaults" :is="item" :key="index" />
+</div>
+
+closeClickOutside思路: 
+使用ref获取到目标元素，在onMounted阶段在document上挂载click事件，该事件是
+每次点击时获取点击的元素，判断目标元素是不是包含点击元素，不是就隐藏
+dropdownRef.value.contains(e.target)

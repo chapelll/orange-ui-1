@@ -39,10 +39,6 @@ const classes = computed(() => {
         [`orange-level-${level}`]: level,
     }
 })
-
-console.log(props);
-
-
 </script>
   
 <style lang="scss">
