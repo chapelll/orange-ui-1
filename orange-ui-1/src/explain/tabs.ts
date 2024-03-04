@@ -1,4 +1,4 @@
-// button组件
+// tabs组件
 const tabsdemo1 = `<template>
 <div>
     <Tabs v-model:selected="selectedTab">

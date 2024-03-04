@@ -1,4 +1,4 @@
-// button组件
+// dropdown组件
 const dropdowndemo1 = `<template>
 <div>
     <Dropdown title="点击可以展开哦 ▼" @clickItem="clickItem">

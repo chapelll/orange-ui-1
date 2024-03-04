@@ -7,6 +7,7 @@ import ButtonDemo from './components/ButtonDemo.vue'
 import ModalDemo from './components/ModalDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
 import DropdownDemo from './components/DropdownDemo.vue'
+import ToastDemo from './components/ToastDemo.vue'
 import Intro from './views/Intro.vue'
 import Install from './views/Install.vue'
 import GetStarted from './views/GetStarted.vue'
@@ -55,6 +56,9 @@ export const router = createRouter({
         }, {
             path: 'dropdown',
             component: DropdownDemo,
+        }, {
+            path: 'toast',
+            component: ToastDemo,
         },]
     },
     ]
