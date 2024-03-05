@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './lib/orange.scss'
 import './index.scss'
 import 'github-markdown-css'

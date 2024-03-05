@@ -3,39 +3,42 @@
     <Topnav class="nav" :toggleAsideShow="true" />
     <div class="content">
       <aside v-if="asideVisible">
-        <h2>文档</h2>
-        <ol>
-          <li>
+        <div class="h2">文档</div>
+        <div class="ol">
+          <div class="li">
             <router-link to="/doc/intro">介绍</router-link>
-          </li>
-          <li>
+          </div>
+          <div class="li">
             <router-link to="/doc/install">安装</router-link>
-          </li>
-          <li>
+          </div>
+          <div class="li">
             <router-link to="/doc/get-started">开始使用</router-link>
-          </li>
-        </ol>
-        <h2>组件列表</h2>
-        <ol>
-          <li>
+          </div>
+        </div>
+        <div class="h2">组件列表</div>
+        <div class="ol">
+          <div class="li">
             <router-link to="/doc/switch">Switch 组件</router-link>
-          </li>
-          <li>
+          </div>
+          <div class="li">
             <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
+          </div>
+          <div class="li">
             <router-link to="/doc/modal">Modal 组件</router-link>
-          </li>
-          <li>
+          </div>
+          <div class="li">
             <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
-          <li>
+          </div>
+          <div class="li">
             <router-link to="/doc/dropdown">Dropdown 组件</router-link>
-          </li>
-          <li>
+          </div>
+          <div class="li">
             <router-link to="/doc/toast">Toast 组件</router-link>
-          </li>
-        </ol>
+          </div>
+          <div class="li">
+            <router-link to="/doc/form">Form 组件</router-link>
+          </div>
+        </div>
       </aside>
       <main>
         <router-view />
@@ -89,7 +92,7 @@ const asideVisible = inject('asideVisible')
 
 aside {
   background: lightblue;
-  width: 150px;
+  width: 160px;
   padding: 16px 0;
   position: fixed;
   top: 0;
@@ -98,13 +101,13 @@ aside {
   height: 100%;
   z-index: 10;
 
-  >h2 {
+  >.h2 {
     margin-bottom: 4px;
-    padding: 0 16px;
+    padding: 4px 16px;
   }
 
-  >ol {
-    >li {
+  >.ol {
+    >.li {
       >a {
         display: block;
         padding: 4px 16px;
