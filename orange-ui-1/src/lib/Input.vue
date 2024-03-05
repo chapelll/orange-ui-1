@@ -1,7 +1,13 @@
 <template>
     <div class="validate-input-container pb-3">
-        <input type="text" class="form-control" :class="{ 'is-invalid': inputRef.error }" v-model="inputRef.val"
-            @blur="validateInput" @input="updateModelValue">
+        <div class="input-wrapper">
+            <input v-bind="attrs" :type="!showPassword && attrs.type == 'password' ? 'password' : 'text'"
+                class="form-control" :class="{ 'is-invalid': inputRef.error }" v-model="inputRef.val"
+                @blur="validateInput" @input="updateModelValue">
+            <svg class="icon" v-if="attrs.type == 'password' && props.modelValue" @click="togglePassword">
+                <use :xlink:href="showPassword ? '#i-yanjing-kai' : '#i-yanjing-guan'"></use>
+            </svg>
+        </div>
         <div class="invalid-feedback" v-if="inputRef.error">
             {{ inputRef.message }}
         </div>
@@ -9,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, reactive } from 'vue';
+import { PropType, reactive, useAttrs, ref, onMounted } from 'vue';
 
 interface RuleProp {
     type: string;
@@ -17,7 +23,13 @@ interface RuleProp {
 }
 type RulesProp = RuleProp[]
 
+defineOptions({
+    inheritAttrs: false
+})
+const attrs = useAttrs()
+console.log(attrs);
 
+const showPassword = ref(false)
 
 const props = defineProps({
     rules: {
@@ -39,11 +51,21 @@ const updateModelValue = (e: KeyboardEvent) => {
     if (e) {
         const targetValue = (e.target as HTMLInputElement).value
         inputRef.val = targetValue
-        emits('update:modelValue',targetValue)
+        emits('update:modelValue', targetValue)
     }
 }
 
+const inputType = ref('text')
+const togglePassword = () => {
+    showPassword.value = !showPassword.value
+    showPassword.value ? inputType.value = 'password' : inputType.value = 'text'
+}
+
 const validateInput = () => {
+    if (!props.rules) {
+        return true
+    }
+
     let pass = true
     let rules = props.rules
 
@@ -68,9 +90,22 @@ const validateInput = () => {
         }
     }
 
-    // 在这里就视为通过
+    // 到这里就视为通过
     inputRef.error = false
     inputRef.message = ''
     return pass
 }
 </script>
+
+<style lang="scss" scoped>
+.input-wrapper {
+    position: relative;
+
+    .icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2rem;
+    }
+}
+</style>

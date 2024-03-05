@@ -36,7 +36,7 @@
             <router-link to="/doc/toast">Toast 组件</router-link>
           </div>
           <div class="li">
-            <router-link to="/doc/form">Form 组件</router-link>
+            <router-link to="/doc/input">Input 组件</router-link>
           </div>
         </div>
       </aside>
