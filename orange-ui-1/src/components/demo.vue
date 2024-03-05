@@ -65,10 +65,9 @@ $border-color: #d9d9d9;
             color: #999;
             font-size: 16px;
             padding-top: 12px;
+            line-height: 24px;
         }
     }
-
-
 
     &-component {
         padding: 16px;

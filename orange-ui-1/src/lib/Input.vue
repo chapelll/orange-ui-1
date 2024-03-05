@@ -2,20 +2,20 @@
     <div class="validate-input-container pb-3">
         <div class="input-wrapper">
             <input v-bind="attrs" :type="!showPassword && attrs.type == 'password' ? 'password' : 'text'"
-                class="form-control" :class="{ 'is-invalid': inputRef.error }" v-model="inputRef.val"
-                @blur="validateInput" @input="updateModelValue">
+                class="form-control" :class="{ 'is-invalid': inputRef.error, 'disabled': attrs.hasOwnProperty('disabled') }"
+                v-model="inputRef.val" @blur="validateInput" @input="updateModelValue">
             <svg class="icon" v-if="attrs.type == 'password' && props.modelValue" @click="togglePassword">
                 <use :xlink:href="showPassword ? '#i-yanjing-kai' : '#i-yanjing-guan'"></use>
             </svg>
         </div>
-        <div class="invalid-feedback" v-if="inputRef.error">
+        <div class="invalid-feedback" style="display: block;" v-if="inputRef.error">
             {{ inputRef.message }}
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, reactive, useAttrs, ref, onMounted } from 'vue';
+import { PropType, reactive, useAttrs, ref, } from 'vue';
 
 interface RuleProp {
     type: string;
@@ -27,7 +27,6 @@ defineOptions({
     inheritAttrs: false
 })
 const attrs = useAttrs()
-console.log(attrs);
 
 const showPassword = ref(false)
 
@@ -91,8 +90,10 @@ const validateInput = () => {
     }
 
     // 到这里就视为通过
-    inputRef.error = false
-    inputRef.message = ''
+    // inputRef.error = false
+    // inputRef.message = ''
+    console.log(inputRef);
+    
     return pass
 }
 </script>
@@ -100,6 +101,12 @@ const validateInput = () => {
 <style lang="scss" scoped>
 .input-wrapper {
     position: relative;
+
+    >.disabled {
+        color: #ccc;
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
 
     .icon {
         position: absolute;

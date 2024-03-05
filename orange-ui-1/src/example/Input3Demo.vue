@@ -1,6 +1,7 @@
 <template>
     <div>
-        <Input placeholder="请输入邮箱" type="password" v-model:modelValue="email"></Input>
+        <Input placeholder="支持disabled" disabled v-model:modelValue="val1"></Input>
+        <Input placeholder="支持readonly" readonly v-model:modelValue="val2"></Input>
     </div>
 </template>
 
@@ -8,14 +9,6 @@
 import { ref } from 'vue';
 import Input from '../lib/Input.vue'
 
-// 创建校验规则
-// const emailRules = [{
-//     type: 'required',
-//     message: '电子邮箱不能为空',
-// }, {
-//     type: 'email',
-//     message: '电子邮箱输入不正确',
-// },]
-
-const email = ref('')
+const val1 = ref('')
+const val2 = ref('')
 </script>

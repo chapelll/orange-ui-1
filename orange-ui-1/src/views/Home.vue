@@ -96,10 +96,11 @@ $text-color: #007974;
 
   >ul {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 
     >li {
-      width: 400px;
+      width: 330px;
       margin: 16px 0;
       padding: 0 16px;
       display: grid;
