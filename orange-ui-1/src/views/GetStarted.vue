@@ -5,23 +5,27 @@
         </h1>
         <p>请先<a href="#/doc/install">安装</a>本组件库。</p>
         <p>然后在你的代码中写入下面的代码</p>
-        <pre><code>import {Button, Tabs, Switch, Dialog} from "king-ui"</code></pre>
+        <pre><code class="language-javaScript">{{ getStarteddemo1 }}</code></pre>
         就可以使用我提供的组件了。
 
         <h2>Vue 单文件组件</h2>
         <p>代码示例：</p>
-        <pre><code>&lt;template&gt;
-  &lt;div&gt;&lt;Button&gt;按钮&lt;/Button&gt;&lt;/div&gt;
-&lt;/template&gt;
-&lt;script setup lang="ts"&gt;
-    import Button from '../lib/Button.vue
-&lt;/script&gt;
- </code></pre>
+        <pre><code class="language-html">{{ getStarteddemo2 }}</code></pre>
     </div>
 </template>
-  
+
 <script setup lang="ts">
+import { onMounted, onUpdated } from 'vue';
+import Prism from "prismjs";
+import "prismjs/themes/prism.css"
+import { getStarteddemo1, getStarteddemo2, } from '../explain/getStarted'
+
+onUpdated(() => {
+    Prism.highlightAll();
+});
+onMounted(() => {
+    Prism.highlightAll();
+})
 </script>
-  
+
 <style lang="scss" scoped></style>
-  
