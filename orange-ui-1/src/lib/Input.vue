@@ -2,7 +2,8 @@
     <div class="validate-input-container pb-3">
         <div class="input-wrapper">
             <input v-bind="attrs" :type="!showPassword && attrs.type == 'password' ? 'password' : 'text'"
-                class="form-control" :class="{ 'is-invalid': inputRef.error, 'disabled': attrs.hasOwnProperty('disabled') }"
+                class="form-control"
+                :class="{ 'is-invalid': inputRef.error, 'disabled': attrs.hasOwnProperty('disabled') }"
                 v-model="inputRef.val" @blur="validateInput" @input="updateModelValue">
             <svg class="icon" v-if="attrs.type == 'password' && props.modelValue" @click="togglePassword">
                 <use :xlink:href="showPassword ? '#i-yanjing-kai' : '#i-yanjing-guan'"></use>
@@ -47,6 +48,8 @@ const inputRef = reactive({
 })
 
 const updateModelValue = (e: KeyboardEvent) => {
+    validateInput()
+
     if (e) {
         const targetValue = (e.target as HTMLInputElement).value
         inputRef.val = targetValue
@@ -78,8 +81,26 @@ const validateInput = () => {
                 return
             }
         } else if (rules[i].type == 'email') {
-            const emailReg = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+            const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             pass = emailReg.test(inputRef.val)
+
+            if (!pass) {
+                inputRef.error = true
+                inputRef.message = rules[i].message
+                return
+            }
+        } else if (rules[i].type == 'phone') {
+            const phoneReg = /^1[3-9]\d{9}$/
+            pass = phoneReg.test(inputRef.val)
+
+            if (!pass) {
+                inputRef.error = true
+                inputRef.message = rules[i].message
+                return
+            }
+        } else if (rules[i].type == 'idCard') {
+            const idCardReg = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$)/
+            pass = idCardReg.test(inputRef.val)
 
             if (!pass) {
                 inputRef.error = true
@@ -90,10 +111,10 @@ const validateInput = () => {
     }
 
     // 到这里就视为通过
-    // inputRef.error = false
-    // inputRef.message = ''
+    inputRef.error = false
+    inputRef.message = ''
     console.log(inputRef);
-    
+
     return pass
 }
 </script>
