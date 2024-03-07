@@ -30,18 +30,17 @@
         </demo>
     </div>
 </template>
-  
+
 <script setup lang="ts">
 import demo from './demo.vue'
-import Button1demo from '../example/Button1demo.vue'
-import Button2demo from '../example/Button2demo.vue'
-import Button3demo from '../example/Button3demo.vue'
+import Button1demo from '../example/Button1Demo.vue'
+import Button2demo from '../example/Button2Demo.vue'
+import Button3demo from '../example/Button3Demo.vue'
 import Button4demo from '../example/Button4demo.vue'
 import Button5demo from '../example/Button5demo.vue'
 
 import { buttondemo1, buttondemo2, buttondemo3, buttondemo4, buttondemo5 } from '../explain/button'
 
 </script>
-  
+
 <style lang="scss" scoped></style>
-  

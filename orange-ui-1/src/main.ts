@@ -4,6 +4,7 @@ import './lib/orange.scss'
 import './index.scss'
 import 'github-markdown-css'
 import App from './App.vue'
+import '../public/svg.js'
 
 import { router } from './router.ts'
 
