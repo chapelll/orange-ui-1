@@ -6,7 +6,7 @@
         <h1>橘子UI</h1>
         <h2>一个用于学习的 UI 框架</h2>
         <p class="actions">
-        <div class="link" href="123">GitHub</div>
+        <div class="link" @click="openPage('https://github.com/chapelll/orange-ui-1')">GitHub</div>
         <div class="link" @click="toPage('/doc')">开始</div>
         </p>
       </div>
@@ -44,6 +44,9 @@ import { useRouter } from "vue-router";
 const router = useRouter()
 const toPage = (url) => {
   router.push(url)
+}
+const openPage = (url) => {
+  window.open(url)
 }
 </script>
 <style lang="scss" scoped>

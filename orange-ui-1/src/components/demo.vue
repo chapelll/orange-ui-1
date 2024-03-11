@@ -9,7 +9,7 @@
                 <slot></slot>
             </div>
             <div class="demo-actions">
-                <Button @click="toggle">查看代码</Button>
+                <Button @click="toggle">{{ codesVisible ? "隐藏代码" : "查看代码" }}</Button>
             </div>
             <div class="demo-code" v-if="codesVisible">
                 <pre><code class="language-html">{{ props.codes }}</code></pre>
@@ -17,7 +17,7 @@
         </div>
     </div>
 </template>
-  
+
 <script lang="ts" setup>
 import { ref, onMounted, onUpdated } from 'vue';
 import Button from '../lib/Button.vue'
@@ -48,7 +48,7 @@ onMounted(() => {
 })
 </script>
 
-  
+
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
 
@@ -90,4 +90,3 @@ $border-color: #d9d9d9;
     }
 }
 </style>
-  
