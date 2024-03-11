@@ -5,4 +5,4 @@ button #02bcb0
 text #28d1c9
 black text #1d2c40
 
-引入: markdown样式  npm install github-markdown-css 使用: class="markdown-body"
+引入: markdown样式1  npm install github-markdown-css 使用: class="markdown-body"
