@@ -6,7 +6,7 @@ const buttondemo1 = `<template>
 </template>
 
 <script lang="ts" setup>
-import Button from '../lib/Button.vue'
+import { Button } from 'my-orange-ui'
 </script>`
 
 const buttondemo2 = `<template>
@@ -28,7 +28,7 @@ const buttondemo2 = `<template>
 </template>
 
 <script lang="ts" setup>
-import Button from '../lib/Button.vue'
+import { Button } from 'my-orange-ui'
 </script>`
 
 const buttondemo3 = `<template>
@@ -53,7 +53,7 @@ const buttondemo3 = `<template>
 </template>
 
 <script lang="ts" setup>
-import Button from '../lib/Button.vue'
+import { Button } from 'my-orange-ui'
 </script>`
 
 const buttondemo4 = `<template>
@@ -65,7 +65,7 @@ const buttondemo4 = `<template>
 </template>
 
 <script lang="ts" setup>
-import Button from '../lib/Button.vue'
+import { Button } from 'my-orange-ui'
 </script>`
 
 const buttondemo5 = `<template>
@@ -76,7 +76,7 @@ const buttondemo5 = `<template>
 </template>
 
 <script lang="ts" setup>
-import Button from '../lib/Button.vue'
+import { Button } from 'my-orange-ui'
 </script>`
 
 export { buttondemo1, buttondemo2, buttondemo3, buttondemo4, buttondemo5 }

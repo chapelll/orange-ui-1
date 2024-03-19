@@ -7,8 +7,8 @@ const toastdemo1 = `<template>
 </template>
 
 <script setup lang="ts">
-import Toast from '../lib/Toast.vue'
-import Button from '../lib/Button.vue'
+import { Toast, Button } from 'my-orange-ui'
+
 import { ref } from 'vue';
 const toastVisible = ref(false)
 const openToast = () => {
@@ -24,8 +24,8 @@ const toastdemo2 = `<template>
 </template>
 
 <script setup lang="ts">
-import Toast from '../lib/Toast.vue'
-import Button from '../lib/Button.vue'
+import { Toast, Button } from 'my-orange-ui'
+
 import { ref } from 'vue';
 const toastVisible = ref(false)
 const openToast = () => {
@@ -45,8 +45,8 @@ const toastdemo3 = `<template>
 </template>
 
 <script setup lang="ts">
-import Toast from '../lib/Toast.vue'
-import Button from '../lib/Button.vue'
+import { Toast, Button } from 'my-orange-ui'
+
 import { ref } from 'vue';
 const toastVisible_success = ref(false)
 const toastVisible_danger = ref(false)
@@ -70,8 +70,8 @@ const toastdemo4 = `<template>
 </template>
 
 <script setup lang="ts">
-import Button from '../lib/Button.vue'
-import { openToast } from '../lib/openToast'
+import { openToast, Button } from 'my-orange-ui'
+
 const showToast1 = () => {
 openToast({
    message: '这是使用函数的形式打开的提示',

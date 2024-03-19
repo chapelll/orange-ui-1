@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Input from '../lib/Input.vue'
+import { Input } from 'my-orange-ui'
 
 // 创建校验规则
 const emailRules = [{

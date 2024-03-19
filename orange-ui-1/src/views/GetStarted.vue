@@ -4,7 +4,7 @@
             开始使用
         </h1>
         <p>请先<a href="#/doc/install">安装</a>本组件库。</p>
-        <p>然后在你的代码中写入下面的代码</p>
+        <p>然后在你的代码中写入下面的代码(样式文件可以在main或App文件中全局引用)</p>
         <pre><code class="language-javaScript">{{ getStarteddemo1 }}</code></pre>
         就可以使用我提供的组件了。
 

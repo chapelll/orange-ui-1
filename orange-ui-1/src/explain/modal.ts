@@ -10,8 +10,7 @@ const modaldemo1 = `<template>
 </template>
 
 <script setup lang="ts">
-import Modal from '../lib/Modal.vue'
-import Button from '../lib/Button.vue'
+import { Button, Modal } from 'my-orange-ui'
 import { ref } from 'vue';
 
 const visible = ref(false)
@@ -32,8 +31,7 @@ const modaldemo2 = `<template>
 </template>
 
 <script setup lang="ts">
-import Modal from '../lib/Modal.vue'
-import Button from '../lib/Button.vue'
+import { Button, Modal } from 'my-orange-ui'
 import { ref } from 'vue';
 
 const visible = ref(false)
@@ -54,8 +52,7 @@ const modaldemo3 = `<template>
 </template>
 
 <script setup lang="ts">
-import Modal from '../lib/Modal.vue'
-import Button from '../lib/Button.vue'
+import { Button, Modal } from 'my-orange-ui'
 import { ref } from 'vue';
 
 const visible = ref(false)
@@ -78,8 +75,7 @@ const modaldemo4 = `<template>
 </template>
 
 <script setup lang="ts">
-import Button from '../lib/Button.vue'
-import { openModal } from '../lib/openModal'
+import { Button, openModal } from 'my-orange-ui'
 
 const showModal = () => {
 openModal({

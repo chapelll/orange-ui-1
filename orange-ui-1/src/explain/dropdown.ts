@@ -10,8 +10,7 @@ const dropdowndemo1 = `<template>
 </template>
 
 <script setup lang="ts">
-import Dropdown from '../lib/Dropdown.vue'
-import DropdownItem from '../lib/DropdownItem.vue'
+import { Dropdown, DropdownItem } from 'my-orange-ui'
 
 const clickItem = (e) => {
     alert('点击了第' + (e + 1) + '项')
@@ -29,8 +28,7 @@ const dropdowndemo2 = `<template>
 </template>
 
 <script setup lang="ts">
-import Dropdown from '../lib/Dropdown.vue'
-import DropdownItem from '../lib/DropdownItem.vue'
+import { Dropdown, DropdownItem } from 'my-orange-ui'
 
 const clickItem = (e) => {
     alert('点击了第' + (e + 1) + '项')
@@ -48,8 +46,7 @@ const dropdowndemo3 = `<template>
 </template>
 
 <script setup lang="ts">
-import Dropdown from '../lib/Dropdown.vue'
-import DropdownItem from '../lib/DropdownItem.vue'
+import { Dropdown, DropdownItem } from 'my-orange-ui'
 
 const clickItem = (e) => {
     console.log('点击了第' + (e + 1) + '项')

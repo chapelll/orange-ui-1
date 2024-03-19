@@ -9,8 +9,7 @@
 </template>
   
 <script setup lang="ts">
-import Modal from '../lib/Modal.vue'
-import Button from '../lib/Button.vue'
+import { Button, Modal } from 'my-orange-ui'
 import { ref } from 'vue';
 
 const visible = ref(false)

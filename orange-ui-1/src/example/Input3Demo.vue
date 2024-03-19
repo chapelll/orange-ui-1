@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Input from '../lib/Input.vue'
+import { Input } from 'my-orange-ui'
 
 const val1 = ref('')
 const val2 = ref('')

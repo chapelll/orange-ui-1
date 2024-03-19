@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { ref, provide } from 'vue';
 import { router } from './router'
-
+import 'my-orange-ui/style.css'
 
 const clientWidth = document.documentElement.clientWidth
 const asideVisible = ref(clientWidth <= 500 ? false : true)

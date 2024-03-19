@@ -1,11 +1,11 @@
 <template>
     <div class="validate-input-container pb-3">
-        <div class="input-wrapper">
+        <div class="orange-input-wrapper">
             <input v-bind="attrs" :type="!showPassword && attrs.type == 'password' ? 'password' : 'text'"
                 class="form-control"
                 :class="{ 'is-invalid': inputRef.error, 'disabled': attrs.hasOwnProperty('disabled') }"
                 v-model="inputRef.val" @blur="validateInput" @input="updateModelValue">
-            <svg class="icon" v-if="attrs.type == 'password' && props.modelValue" @click="togglePassword">
+            <svg class="orange-input-icon" v-if="attrs.type == 'password' && props.modelValue" @click="togglePassword">
                 <use :xlink:href="showPassword ? '#i-yanjing-kai' : '#i-yanjing-guan'"></use>
             </svg>
         </div>
@@ -120,7 +120,7 @@ const validateInput = () => {
 </script>
 
 <style lang="scss" scoped>
-.input-wrapper {
+.orange-input-wrapper {
     position: relative;
 
     >.disabled {
@@ -129,7 +129,7 @@ const validateInput = () => {
         cursor: not-allowed;
     }
 
-    .icon {
+    .orange-input-icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);

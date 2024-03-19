@@ -1,9 +1,9 @@
 <template>
-    <div class="dropdown-item" :class="{ 'dropdown-item-disabled': props.disabled }">
+    <div class="orange-dropdown-item" :class="{ 'orange-dropdown-item-disabled': props.disabled }">
         <slot></slot>
     </div>
 </template>
-  
+
 <script setup lang="ts">
 const props = defineProps({
     disabled: {
@@ -12,9 +12,10 @@ const props = defineProps({
     }
 })
 </script>
-  
+
 <style lang="scss" scoped>
-.dropdown-item {
+.orange-dropdown-item {
+    display: block;
     cursor: pointer;
     padding: 6px 12px;
     padding-left: 36px;
@@ -24,10 +25,9 @@ const props = defineProps({
     }
 }
 
-.dropdown-item-disabled {
+.orange-dropdown-item-disabled {
     color: #ccc;
     opacity: 0.8;
     cursor: not-allowed;
 }
 </style>
-  

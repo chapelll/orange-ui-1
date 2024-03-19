@@ -6,5 +6,5 @@
 </template>
   
 <script lang="ts" setup>
-import Button from '../lib/Button.vue'
+import { Button } from 'my-orange-ui'
 </script>

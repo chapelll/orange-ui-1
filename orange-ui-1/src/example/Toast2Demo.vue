@@ -6,9 +6,9 @@
 </template>
   
 <script setup lang="ts">
-import Toast from '../lib/Toast.vue'
-import Button from '../lib/Button.vue'
+import { Toast, Button } from 'my-orange-ui'
 import { ref } from 'vue';
+
 const toastVisible = ref(false)
 const openToast = () => {
     toastVisible.value = true

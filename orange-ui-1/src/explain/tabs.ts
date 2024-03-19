@@ -9,9 +9,9 @@ const tabsdemo1 = `<template>
 </template>
 
 <script setup lang="ts">
-import Tabs from '../lib/Tabs.vue'
-import Tab from '../lib/Tab.vue'
+import { Tabs, Tab } from 'my-orange-ui'
 import { ref } from 'vue';
+
 const selectedTab = ref('导航一')
 </script>`
 
@@ -26,9 +26,9 @@ const tabsdemo2 = `<template>
 </template>
 
 <script setup lang="ts">
-import Tabs from '../lib/Tabs.vue'
-import Tab from '../lib/Tab.vue'
+import { Tabs, Tab } from 'my-orange-ui'
 import { ref } from 'vue';
+
 const selectedTab = ref('导航一')
 </script>`
 
